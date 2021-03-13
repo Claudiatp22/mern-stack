@@ -79,9 +79,19 @@ deletePost = async (req, res) => {
   });
 };
 
+getPostImages = async (req, res) => {
+  Post.findAll({ postId: req.params.cuid }).exec((err, images) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.json({ images });
+  });
+};
+
 module.exports = {
   getPosts,
   addPost,
   getPost,
+  getPostImages,
   deletePost
 };

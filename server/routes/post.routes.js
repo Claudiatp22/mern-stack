@@ -8,6 +8,9 @@ router.route('/posts').get(PostController.getPosts);
 // Get one post by cuid
 router.route('/posts/:cuid').get(PostController.getPost);
 
+// Get one post's images by cuid
+router.route('/posts/:cuid/images').get(PostController.getPostImages);
+
 // Add a new Post
 router.route('/posts').post(PostController.addPost);
 

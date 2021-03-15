@@ -20,14 +20,14 @@ addUser = async (req, res) => {
 
   // Let's sanitize inputs
   newUser.email = sanitizeHtml(newUser.email);
-  newUser.userName = sanitizeHtml(newUser.userName);
+  newUser.userName = newUser.userName ? sanitizeHtml(newUser.userName): null;
 
   newUser.cuid = cuid();
   newUser.save((err, saved) => {
     if (err) {
       res.status(500).send(err);
     }
-    res.json({ post: saved });
+    res.json({ user: saved });
   });
 };
 

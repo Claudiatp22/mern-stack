@@ -5,9 +5,9 @@ const SALT_WORK_FACTOR = 10;
 
 const userSchema = new Schema({
     cuid: { type: 'String', required: true },
-    email: { type: 'String', required: true },
+    email: { type: 'String', required: true, unique: true },
     password: { type: 'String', required: true },
-    userName: { type: 'String', required: true },
+    userName: { type: 'String', default: null },
     created: { type: 'Date', default: Date.now, required: true },
     updated: { type: 'Date', default: Date.now, required: true },
 });

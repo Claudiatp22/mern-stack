@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const PostCreateWidget = ({ addPost }) => {
+const SignUpWidget = ({ addUser }) => {
 
     const [state, setState] = useState({});
     const classes = useStyles();
@@ -21,8 +21,8 @@ const PostCreateWidget = ({ addPost }) => {
 
 
   const submit = () => {
-    if (state.name && state.title && state.content) {
-        addPost(state);
+    if (state.email && state.password) {
+        addUser(state);
     }
   };
 
@@ -36,19 +36,18 @@ const PostCreateWidget = ({ addPost }) => {
 
   return (
     <div className={`${classes.root} d-flex flex-column my-4 w-100`}>
-        <h3>Create new post</h3>
-        <TextField variant="filled" label="Author name" name="name" onChange={handleChange} />
-        <TextField variant="filled" label="Post title" name="title" onChange={handleChange} />
-        <TextField variant="filled" multiline rows="4" label="Post content" name="content" onChange={handleChange} />
-        <Button className="mt-4" variant="contained" color="primary" onClick={() => submit()} disabled={!state.name || !state.title || !state.content}>
+        <TextField variant="filled" label="Username" name="userName" onChange={handleChange} />
+        <TextField variant="filled" label="Email" name="email" onChange={handleChange} />
+        <TextField variant="filled" label="Password" name="password" type={"password"} onChange={handleChange} />
+        <Button className="mt-4" variant="contained" color="primary" onClick={() => submit()} disabled={!state.email || !state.password}>
             Submit
         </Button>
     </div>
   );
 };
 
-PostCreateWidget.propTypes = {
-  addPost: PropTypes.func.isRequired
+SignUpWidget.propTypes = {
+  addUser: PropTypes.func.isRequired
 };
 
-export default PostCreateWidget;
+export default SignUpWidget;

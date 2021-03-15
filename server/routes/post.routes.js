@@ -3,18 +3,18 @@ const router = express.Router();
 const PostController = require('../controllers/post.controller');
 
 // Get all Posts
-router.route('/posts').get(PostController.getPosts);
+router.route('/').get(PostController.getPosts);
 
 // Get one post by cuid
-router.route('/posts/:cuid').get(PostController.getPost);
+router.route('/:cuid').get(PostController.getPost);
 
 // Get one post's images by cuid
-router.route('/posts/:cuid/images').get(PostController.getPostImages);
+router.route('/:cuid/images').get(PostController.getPostImages);
 
 // Add a new Post
-router.route('/posts').post(PostController.addPost);
+router.route('/').post(PostController.addPost);
 
 // Delete a post by cuid
-router.route('/posts/:cuid').delete(PostController.deletePost);
+router.route('/:cuid').delete(PostController.deletePost);
 
 module.exports = router;
